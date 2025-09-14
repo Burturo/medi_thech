@@ -55,45 +55,27 @@
             </div>
         </div>
     </div>
-    <div class="row h-100">
-        <div class="col-lg-5 col-12">
-            <div id="auth-left">
-                <div class="auth-logo">
-                    <a href="#"><img th:src="@{/images/logo/logo.jpg}" alt="Logo"></a>
-                </div>
+    <div class="container">
+        <div class="left">
+            <h2 class="text-center">Welcom back to <span>Medi-Thech</span></h2>
+            <form method="post" th:action="@{/login}">
+                <input hidden th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                <input id="username" required name="username" type="text"
+                       placeholder="Enter your username">
+                <input id="password" required name="password" type="password"
+                       placeholder="Enter your password">
+                <div class="remember-forgot">
+                    <div><input type="checkbox" /> Remember me</div>
 
-                <h1 class="text-center">Locasys</h1>
-                <p class="auth-subtitle text-center mb-5">Authentification.</p>
-
-                <form method="post" th:action="@{/login}">
-                    <input hidden th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
-                    <div class="form-group position-relative has-icon-left mb-4">
-                        <input id="username" required name="username" type="text" class="form-control form-control-xl"
-                               placeholder="Nom d'utilisateur">
-                        <div class="form-control-icon">
-                            <i class="bi bi-person"></i>
-                        </div>
-                    </div>
-                    <div class="form-group position-relative has-icon-left mb-4">
-                        <input id="password" required name="password" type="password"
-                               class="form-control form-control-xl"
-                               placeholder="Mot de passe">
-                        <div class="form-control-icon">
-                            <i class="bi bi-shield-lock"></i>
-                        </div>
-                    </div>
-                    <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Se connecter</button>
-                </form>
-                <div class="text-center mt-5 text-lg fs-4">
-                    <p><a class="font-bold" href="/forgot-password">Mot de passe oublié?</a>.</p>
+                    <a href="/forgot-password">Forgot password ?</a>
                 </div>
+                <button class="login_button">login</button>
+            </form>
+            <div class="signup">
+                You don’t have an account ? <a href="#">Create one</a>
             </div>
         </div>
-        <div class="col-lg-7 d-none d-lg-block">
-            <div id="auth-right">
-
-            </div>
-        </div>
+        <div class="right"></div>
     </div>
 
 </div>

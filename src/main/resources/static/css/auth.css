@@ -1,43 +1,103 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
 body {
-  background-color: #fff;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
-#auth {
-  height: 100vh;
-  overflow-x: hidden;
+
+.container {
+    display: flex;
+    width: 800px;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
-#auth #auth-right {
-  height: 100%;
-  background: url('/images/bg/back01.jpg'),
-    linear-gradient(90deg, #2d499d, #3f5491);
+
+.left {
+    flex: 1;
+    padding: 40px;
 }
-#auth #auth-left {
-  padding: 5rem 8rem;
+
+.left h2 {
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: #333;
 }
-#auth #auth-left .auth-title {
-  font-size: 4rem;
-  margin-bottom: 1rem;
+
+.left h2 span {
+    display: block;
+    font-weight: bold;
+    font-size: 28px;
+    margin-top: 5px;
 }
-#auth #auth-left .auth-subtitle {
-  font-size: 1.7rem;
-  line-height: 2.5rem;
-  color: #a8aebb;
+
+.left input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
 }
-#auth #auth-left .auth-logo {
-    margin-bottom: 7rem;
-    display: flex; /* Pour centrer */
-    justify-content: center; /* Centrage horizontal */
-    align-items: center; /* Centrage vertical */
-  }
-  
-  #auth #auth-left .auth-logo img {
-    height: 6rem; /* Augmente la taille du logo */
-    width: 6rem; /* Pour conserver la forme carrée */
-    border-radius: 50%; /* Rend le logo arrondi */
-    object-fit: cover; /* Assure que le contenu du logo reste bien ajusté */
-  }
-  
-@media screen and (max-width: 767px) {
-  #auth #auth-left {
-    padding: 5rem;
-  }
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.left .login_button {
+    width: 100%;
+    padding: 12px;
+    background-color: #1abc9c;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.left .login_button:hover {
+    background-color: #17a88c;
+}
+
+.left .signup {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.left .signup a {
+    color: #1abc9c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.right {
+    flex: 1;
+    background: url('/images/login.jpg') no-repeat center center/cover;
+    position: relative;
+}
+
+/* Responsive (optional) */
+@media (max-width: 768px) {
+    .container {
+    flex-direction: column;
+    }
+
+    .right {
+    height: 250px;
+    }
 }
