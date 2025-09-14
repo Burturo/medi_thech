@@ -1,0 +1,209 @@
+<div th:fragment="sidebar" id="sidebar" class="active">
+    <div class="sidebar-wrapper active">
+        <div class="sidebar-header">
+            <div class="d-flex justify-content-between">
+                <div class="ms-5 logo" style="display: flex; justify-content: center; align-items: center;">
+                    <a href="/dashboard">
+                        <img th:src="@{/images/logo/logo.jpg}" alt="Logo"
+                             style="height: 6rem; width: 6rem; border-radius: 50%; object-fit: cover; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
+                    </a>
+                </div>
+
+                <div class="toggler">
+                    <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar-menu">
+            <ul class="menu">
+                <li class="sidebar-title">Menu</li>
+
+                <!-- Tableau de bord -->
+                <li class="sidebar-item" th:classappend="${currentUrl == '/dashboard'} ? 'active'">
+                    <a href="/dashboard" class="sidebar-link">
+                        <i class="bi bi-speedometer2 me-2"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+
+                <!-- Gestion des propriétés -->
+                <li class="sidebar-item has-sub"
+                    th:classappend="${currentUrl.startsWith('/station') or currentUrl.startsWith('/bureau') or currentUrl.startsWith('/pays') or currentUrl.startsWith('/ville') or currentUrl.startsWith('/quartier') or currentUrl.startsWith('/immeuble') or currentUrl.startsWith('/maison') or currentUrl.startsWith('/niveau') or currentUrl.startsWith('/boutique')} ? 'active'">
+                    <a href="#" class="sidebar-link">
+                        <i class="bi bi-buildings me-2"></i>
+                        <span>Locaux</span>
+                    </a>
+                    <ul class="submenu">
+                        <li class="submenu-item" th:classappend="${currentUrl == '/pays'} ? 'active'">
+                            <a th:href="@{/pays}">
+                                <i class="bi bi-globe me-2"></i>Pays
+                            </a>
+                        </li>
+                        <li class="submenu-item" th:classappend="${currentUrl == '/ville'} ? 'active'">
+                            <a th:href="@{/ville}">
+                                <i class="bi bi-geo-alt me-2"></i>Villes
+                            </a>
+                        </li>
+                        <li class="submenu-item" th:classappend="${currentUrl == '/quartier'} ? 'active'">
+                            <a th:href="@{/quartier}">
+                                <i class="bi bi-diagram-3 me-2"></i>Quartiers
+                            </a>
+                        </li>
+                        <li class="submenu-item" th:classappend="${currentUrl == '/immeuble'} ? 'active'">
+                            <a th:href="@{/immeuble}">
+                                <i class="bi bi-bank me-2"></i>Immeubles
+                            </a>
+                        </li>
+                        <li class="submenu-item" th:classappend="${currentUrl == '/niveau'} ? 'active'">
+                            <a th:href="@{/niveau}">
+                                <i class="bi bi-building me-2"></i>Niveaux
+                            </a>
+                        </li>
+                        <li class="submenu-item" th:classappend="${currentUrl == '/maison'} ? 'active'">
+                            <a th:href="@{/maison}">
+                                <i class="bi bi-house-door me-2"></i>Maisons
+                            </a>
+                        </li>
+                        <li class="submenu-item" th:classappend="${currentUrl == '/station'} ? 'active'">
+                            <a th:href="@{/station}">
+                                <i class="bi bi-fuel-pump-diesel me-2"></i>Stations
+                            </a>
+                        </li>
+                        <li class="submenu-item" th:classappend="${currentUrl == '/bureau'} ? 'active'">
+                            <a th:href="@{/bureau}">
+                                <i class="bi bi-briefcase me-2"></i>Bureaux
+                            </a>
+                        </li>
+                        <li class="submenu-item" th:classappend="${currentUrl == '/boutique'} ? 'active'">
+                            <a th:href="@{/boutique}">
+                                <i class="bi bi-shop me-2"></i>Boutiques
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Clients -->
+                <li class="sidebar-item" th:classappend="${currentUrl == '/clients'} ? 'active'">
+                    <a th:href="@{/clients}" class="sidebar-link">
+                        <i class="bi bi-person me-2"></i>
+                        <span>Clients</span>
+                    </a>
+                </li>
+
+                <!-- Locations -->
+                <li class="sidebar-item" th:classappend="${currentUrl == '/locations'} ? 'active'">
+                    <a th:href="@{/locations}" class="sidebar-link">
+                        <i class="bi bi-key me-2"></i>
+                        <span>Locations</span>
+                    </a>
+                </li>
+
+                <!-- Locations -->
+                <li class="sidebar-item" th:classappend="${currentUrl == '/etat-paiement'} ? 'active'">
+                    <a th:href="@{/etat-paiement}" class="sidebar-link">
+                        <i class="bi bi-alt me-2"></i>
+                        <span>Etats des paiements</span>
+                    </a>
+                </li>
+
+                <!-- Paiements -->
+                <li class="sidebar-item" th:classappend="${currentUrl == '/paiement'} ? 'active'">
+                    <a th:href="@{/paiement}" class="sidebar-link">
+                        <i class="bi bi-cash-coin me-2"></i>
+                        <span>Paiements</span>
+                    </a>
+                </li>
+
+                <!-- Paiements -->
+                <li class="sidebar-item" th:classappend="${currentUrl == '/caisse'} ? 'active'">
+                    <a th:href="@{/caisse}" class="sidebar-link">
+                        <i class="bi bi-inboxes-fill me-2"></i>
+                        <span>Caisses</span>
+                    </a>
+                </li>
+
+                <!-- Dépenses -->
+                <!--<li class="sidebar-item" th:classappend="${currentUrl == '/depense'} ? 'active'">
+                    <a th:href="@{/depense}" class="sidebar-link">
+                        <i class="bi bi-cash me-2"></i>
+                        <span>Dépenses</span>
+                    </a>
+                </li>-->
+
+                <!-- Maintenance -->
+                <li class="sidebar-item" th:classappend="${currentUrl == '/maintenance'} ? 'active'">
+                    <a th:href="@{/maintenance}" class="sidebar-link">
+                        <i class="bi bi-tools me-2"></i>
+                        <span>Maintenances</span>
+                    </a>
+                </li>
+
+                <!-- Fiscalité -->
+                <li class="sidebar-item" th:classappend="${currentUrl == '/fiscalite'} ? 'active'">
+                    <a th:href="@{/fiscalite}" class="sidebar-link">
+                        <i class="bi bi-receipt me-2"></i>
+                        <span>Fiscalité</span>
+                    </a>
+                </li>
+
+                <!-- Rapports et Analyses -->
+                <li class="sidebar-item has-sub" th:classappend="${currentUrl.startsWith('/rapport')} ? 'active'">
+                    <a href="#" class="sidebar-link">
+                        <i class="bi bi-bar-chart-line me-2"></i>
+                        <span>Rapports</span>
+                    </a>
+                    <ul class="submenu">
+                        <li class="submenu-item" th:classappend="${currentUrl == '/rapport/paiements'} ? 'active'">
+                            <a th:href="@{/rapport/paiements}">
+                                <i class="bi bi-currency-dollar me-2"></i>Paiements
+                            </a>
+                        </li>
+                        <li class="submenu-item" th:classappend="${currentUrl == '/rapport/revenus'} ? 'active'">
+                            <a th:href="@{/rapport/revenus}">
+                                <i class="bi bi-graph-up me-2"></i>Revenus
+                            </a>
+                        </li>
+                        <li class="submenu-item" th:classappend="${currentUrl == '/rapport/depenses'} ? 'active'">
+                            <a th:href="@{/rapport/depenses}">
+                                <i class="bi bi-pie-chart me-2"></i>Dépenses
+                            </a>
+                        </li>
+                        <li class="submenu-item" th:classappend="${currentUrl == '/rapport/suspension'} ? 'active'">
+                            <a th:href="@{/rapport/suspension}">
+                                <i class="bi bi-pause-circle me-2"></i>Contrats Suspendus
+                            </a>
+                        </li>
+                        <li class="submenu-item" th:classappend="${currentUrl == '/rapport/renouvelement'} ? 'active'">
+                            <a th:href="@{/rapport/renouvelement}">
+                                <i class="bi bi-arrow-clockwise me-2"></i>Contrats Renouvelés
+                            </a>
+                        </li>
+                        <li class="submenu-item" th:classappend="${currentUrl == '/rapport/prolongement'} ? 'active'">
+                            <a th:href="@{/rapport/prolongement}">
+                                <i class="bi bi-clock-history me-2"></i>Contrat Prolongés
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Gestion des utilisateurs -->
+                <li class="sidebar-item" th:classappend="${currentUrl == '/users'} ? 'active'">
+                    <a th:href="@{/users}" class="sidebar-link">
+                        <i class="bi bi-people me-2"></i>
+                        <span>Utilisateurs</span>
+                    </a>
+                </li>
+
+                <!-- Paramètres -->
+                <li class="sidebar-item" th:classappend="${currentUrl == '/audites'} ? 'active'">
+                    <a th:href="@{/audites}" class="sidebar-link">
+                        <i class="bi bi-activity me-2"></i>
+                        <span>Audites</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+    </div>
+</div>

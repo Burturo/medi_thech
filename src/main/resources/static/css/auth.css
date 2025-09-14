@@ -1,0 +1,43 @@
+body {
+  background-color: #fff;
+}
+#auth {
+  height: 100vh;
+  overflow-x: hidden;
+}
+#auth #auth-right {
+  height: 100%;
+  background: url('/images/bg/back01.jpg'),
+    linear-gradient(90deg, #2d499d, #3f5491);
+}
+#auth #auth-left {
+  padding: 5rem 8rem;
+}
+#auth #auth-left .auth-title {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+#auth #auth-left .auth-subtitle {
+  font-size: 1.7rem;
+  line-height: 2.5rem;
+  color: #a8aebb;
+}
+#auth #auth-left .auth-logo {
+    margin-bottom: 7rem;
+    display: flex; /* Pour centrer */
+    justify-content: center; /* Centrage horizontal */
+    align-items: center; /* Centrage vertical */
+  }
+  
+  #auth #auth-left .auth-logo img {
+    height: 6rem; /* Augmente la taille du logo */
+    width: 6rem; /* Pour conserver la forme carrée */
+    border-radius: 50%; /* Rend le logo arrondi */
+    object-fit: cover; /* Assure que le contenu du logo reste bien ajusté */
+  }
+  
+@media screen and (max-width: 767px) {
+  #auth #auth-left {
+    padding: 5rem;
+  }
+}
